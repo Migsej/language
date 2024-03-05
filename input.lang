@@ -1,0 +1,13 @@
+
+fn plussy(a, b) {
+	return a + b;
+}
+
+fn main() {
+	pee := 4;
+	poop := plussy(pee, 8);
+	return 0;
+}
+
+
+
