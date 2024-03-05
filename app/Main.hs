@@ -1,7 +1,5 @@
 module Main where
 
-import Lexer
-import Parser
 import NewParser
 import Compiler
 
@@ -17,7 +15,9 @@ assemble instructions = unlines ["format ELF64",
                                 ++ unlines 
                                 ["_start:", 
                                 "\tcall main", 
-                                "\tret"]
+                                "\tmov rdi, rax",
+                                "\tmov rax, 60",
+                                "\tsyscall"]
 
 main :: IO ()
 main = do

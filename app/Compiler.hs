@@ -76,6 +76,7 @@ scope arguments (Scope code) = [Push Rbp, Mov Rbp Rsp, Sub Rsp (Intlit allocated
 compileExpr :: Expression -> [Instruction]
 compileExpr (IntLiteral num) = [Push (Intlit num)]
 compileExpr (AddExpr a b) = compileExpr a ++ compileExpr b ++ [Pop Rax, Pop Rdi, Add Rax Rdi, Push Rax]
+compileExpr (MinusExpr a b) = compileExpr a ++ compileExpr b ++ [Pop Rax, Pop Rdi, Sub Rax Rdi, Push Rax]
 compileExpr (IdentExpr name) = [Mov Rax (Name name), Push Rax]
 compileExpr (FuncCall name arguments) = concatMap compileExpr arguments ++ [Call name, Push Rax]
 compileExpr other = error $ "what is expression " ++ show other

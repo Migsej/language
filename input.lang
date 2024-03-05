@@ -6,7 +6,7 @@ fn plussy(a, b) {
 fn main() {
 	pee := 4;
 	poop := plussy(pee, 8);
-	return 0;
+	return 69;
 }
 
 
